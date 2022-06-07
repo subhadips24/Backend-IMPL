@@ -1,0 +1,25 @@
+package com.ipm.api.customerPolicieApply;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerApplyPolicieControler {
+	@Autowired
+	public CustomerApllyPolicieService  apservice;
+		@PostMapping("/applypolicy")
+		@ResponseStatus(HttpStatus.CREATED)
+		public String apllicationSave(@RequestBody CustomerApllyPolicieService cpp){
+			try {
+				
+				CustomerApllyPolicieService cp=
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+}

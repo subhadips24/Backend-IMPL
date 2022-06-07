@@ -1,0 +1,75 @@
+package com.ipm.api.applypolicies;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class CustomerPolicyApply {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	private String CustomerName;
+	private String CustomerEmail;
+	private String Status = "pending";
+	Date date = new Date();
+	private String Date = date.toString();
+
+	public CustomerPolicyApply(long id, String customerName, String customerEmail, String status, java.util.Date date,
+			String date2) {
+		super();
+		this.id = id;
+		CustomerName = customerName;
+		CustomerEmail = customerEmail;
+		Status = status;
+		this.date = date;
+		Date = date2;
+	}
+
+	public CustomerPolicyApply() {
+
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getCustomerName() {
+		return CustomerName;
+	}
+
+	public void setCustomerName(String customerName) {
+		CustomerName = customerName;
+	}
+
+	public String getCustomerEmail() {
+		return CustomerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		CustomerEmail = customerEmail;
+	}
+
+	public String getStatus() {
+		return Status;
+	}
+
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+	public String getDate() {
+		return Date;
+	}
+
+	public void setDate(String date) {
+		Date = date;
+	}
+
+}

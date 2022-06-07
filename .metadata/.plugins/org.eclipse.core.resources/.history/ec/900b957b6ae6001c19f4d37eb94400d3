@@ -1,0 +1,25 @@
+package com.ipm.api.admin;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.Data;
+@Entity
+@Data
+public class Admin {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long cid;
+	@Column(unique = true,nullable = false )
+	private String cemail;
+	@Column(nullable = false)
+	private String cname;
+	private String cpassword;
+	private String cphno;
+	private String cage;
+	private String cgender;
+	private String caddress;
+}

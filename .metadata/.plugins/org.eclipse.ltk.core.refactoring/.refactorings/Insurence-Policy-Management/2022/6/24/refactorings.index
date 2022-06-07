@@ -1,1 +1,7 @@
 1654492893160	Delete element
+1654602958232	Rename package 'com.ipm.api.policys'
+1654603152951	Rename package 'com.ipm.api.applypolicies'
+1654603183247	Rename type 'ApplyPolicie'
+1654603203572	Rename type 'ApplyPolicieRepo'
+1654603217401	Rename type 'ApplyPolicieControler'
+1654603229676	Rename type 'ApllyPolicieService'

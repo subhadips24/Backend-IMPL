@@ -1,0 +1,28 @@
+package com.ipm.api.customerPolicieApply;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerApplyPolicieControler {
+	@Autowired
+	 CustomerApllyPolicieService  apservice;
+	
+	//Save Application
+		@PostMapping("/applypolicy")
+		@ResponseStatus(HttpStatus.CREATED)
+		public String apllicationSave(@RequestBody CustomerApplyPolicie cpp){
+			try {
+				
+			 apservice.apllicatonPolicy(cpp);
+			return "Policy applyed by "+cpp.getCustomerName();
+				
+			} catch (Exception e) {
+				return "Something wend Wrong...";
+			}
+		}
+}

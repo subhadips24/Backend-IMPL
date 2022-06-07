@@ -1,0 +1,10 @@
+package com.ipm.api.customerPolicieApply;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+@Repository
+ interface CustomerApplyPolicieRepo extends JpaRepository<CustomerApplyPolicie, Long> {
+		public CustomerApplyPolicie findByAppid(Long id);
+		
+}
+

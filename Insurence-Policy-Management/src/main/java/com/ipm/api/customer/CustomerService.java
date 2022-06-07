@@ -32,7 +32,7 @@ public class CustomerService {
 		Customer cc=crepo.findByCemail(email);
 	
 		if(cc!=null) {
-			cc.setCemail(customer.getCemail());
+			
 			cc.setCname(customer.getCname());
 			cc.setCpassword(customer.getCpassword());
 			cc.setCgender(customer.getCgender());
@@ -42,6 +42,9 @@ public class CustomerService {
 		}else {
 			return null;
 		}
+	}
+	public void deletecustomer(Long id) {
+		crepo.deleteById(id);
 	}
 	
 }

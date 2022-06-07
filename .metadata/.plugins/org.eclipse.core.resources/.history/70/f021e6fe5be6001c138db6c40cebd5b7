@@ -1,0 +1,39 @@
+package com.ipm.api.customerPolicieApply;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomerApllyPolicieService {
+	@Autowired
+	public CustomerApplyPolicieRepo apprepo;;
+	
+	//Aplly Policy or Save Policy in Apply Table 
+	public CustomerApplyPolicie apllicatonPolicy(CustomerApplyPolicie apply) {
+			return apprepo.save(apply);
+	}
+	
+	// Getting Apllication Table
+		public List<CustomerApplyPolicie >  getCustomer() {
+
+		return  apprepo.findAll() ;
+
+	}
+		
+	//Delete Customer Application
+		public void deleteCustomerApllication(Long id) {
+			
+			this.apprepo.deleteById(id);
+		}
+		
+	//Update Status
+		public CustomerApplyPolicie updateStatus(Long id,CustomerApplyPolicie application) {
+				CustomerApplyPolicie cp=apprepo.findByAppid(id);
+				
+				
+			
+		}
+	
+}

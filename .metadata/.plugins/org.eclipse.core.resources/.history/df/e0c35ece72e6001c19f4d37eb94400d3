@@ -1,0 +1,54 @@
+package com.ipm.api.customerPolicieApply;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerApplyPolicieControler {
+	@Autowired
+	 CustomerApllyPolicieService  apservice;
+	
+	//Save Application
+		@PostMapping("/applypolicy")
+		@ResponseStatus(HttpStatus.CREATED)
+		public String apllicationSave(@RequestBody CustomerApplyPolicie cpp){
+			try {
+				
+			 apservice.apllicatonPolicy(cpp);
+			return "Policy applyed by "+cpp.getCustomerName();
+				
+			} catch (Exception e) {
+				return "Something wend Wrong...";
+			}
+		}
+		
+		@GetMapping("/getallaplicationofpolicy")
+		@ResponseStatus(HttpStatus.FOUND)
+		public List<CustomerApplyPolicie>  showApllication(){
+			
+			return apservice.getCustomerApllication();
+		}
+		
+		//Update Status
+		@PutMapping("/updatestatus/{id}")
+		@ResponseStatus(HttpStatus.ACCEPTED)
+		public String updateStatus(@PathVariable Long id,@RequestBody CustomerApplyPolicie cap) {
+			
+				try {
+					apservice.updateStatus(id, cap);
+					return cap.getCustomerName()+" Customer status updated";
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+			
+		}
+}

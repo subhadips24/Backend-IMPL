@@ -1,0 +1,23 @@
+package com.ipm.api.customerPolicieApply;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomerApllyPolicieService {
+	@Autowired
+	public CustomerApplyPolicieRepo applyprepo;
+	
+	//Aplly Policy or Save Policy in Apply Table 
+	public CustomerApplyPolicie apllicatonPolicy(CustomerApplyPolicie apply) {
+			return applyprepo.save(apply);
+	}
+	
+	// Getting Apllication Table
+		public CustomerApplyPolicie  getCustomer() {
+
+		return  applyprepo.findAll() ;
+
+	}
+	
+}

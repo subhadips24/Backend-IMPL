@@ -1,0 +1,16 @@
+package com.ipm.api.applypolicies;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ApllyPolicieService {
+	@Autowired
+	public ApplyPolicieRepo applyprepo;
+	
+	//Aplly Policy or Save Policy in Apply Table 
+	public ApplyPolicie apllicatonPolicy(ApplyPolicie apply) {
+			return applyprepo.save(apply);
+	}
+	
+}
