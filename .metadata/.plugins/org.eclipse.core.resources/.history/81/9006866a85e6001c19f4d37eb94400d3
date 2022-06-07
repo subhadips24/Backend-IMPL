@@ -1,0 +1,29 @@
+package com.ipm.api.questionsbycustomer;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class QustionsCustomerService {
+	@Autowired
+	QustionsCustomerRepo qRepo;
+//Save Qustions
+	public QuestionsCustomer saveQustions(QuestionsCustomer qc) {
+
+		return qRepo.save(qc);
+
+	}
+	//Fetch Question
+	public List<QuestionsCustomer> getAllQuestions() {
+		
+		return qRepo.findAll();
+	}
+	//Give The Answer
+	public QuestionsCustomer  updateAns(Long qid,QuestionsCustomer qc) {
+		QuestionsCustomer  qcu=qRepo.findByid(qid);
+		
+	}
+}

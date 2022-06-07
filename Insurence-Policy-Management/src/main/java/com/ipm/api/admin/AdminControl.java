@@ -18,18 +18,19 @@ import com.ipm.api.customer.CustomerService;
 
 @RestController
 public class AdminControl {
+	HttpStatus hs;
 	@Autowired
 	AdminService adminService;
 	//For adding Customer use (/addadmin)
 	@PostMapping("/addadmin")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addAdmin(@RequestBody Admin aa) {
+	public HttpStatus addAdmin(@RequestBody Admin aa) {
 		
 			try {
 				adminService.saveAdmin(aa);
-				return "Thank You! You have done Registration Sucessfully  "+aa.getAdminname();
+				return hs.CREATED;
 			} catch (Exception e) {
-				return "Something went wrong";
+				return hs.BAD_REQUEST;
 				
 			}
 	
@@ -75,21 +76,21 @@ public class AdminControl {
 	
 	@PutMapping("/updateadmin/{email}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	public String updateCustomer(@PathVariable("email") String email, @RequestBody Admin admin) {
+	public HttpStatus updateCustomer(@PathVariable("email") String email, @RequestBody Admin admin) {
 		try {
 			
 			Admin cc=adminService.updateAdminByEmail(email, admin);
 			if(cc!=null)
 			{
-				return  cc.getAdminname()+" Your data is updated";
+				return  hs.OK;
 			}else {
 				
-				return  "Your data not there please check your email id "+email;
+				return  hs.NOT_ACCEPTABLE;
 			}
 			
 			
 		} catch (Exception e) {
-			return "Something wend wrong" ;
+			return hs.INTERNAL_SERVER_ERROR ;
 		}
 		
 		
@@ -98,12 +99,12 @@ public class AdminControl {
 	
 	@DeleteMapping("/deleteadmin/{id}")
 	@ResponseStatus(HttpStatus.FOUND)
-	public String deleteUser(@PathVariable("id") Long id) {
+	public HttpStatus deleteUser(@PathVariable("id") Long id) {
 		try {
 			adminService.deleteAdmin(id);
-			return id+"  this Id of Customer Deleted";
+			return hs.OK;
 		} catch (Exception e) {
-			return id+"  this  id "+HttpStatus.NOT_FOUND;
+			return HttpStatus.NOT_FOUND;
 			
 		}
 	}

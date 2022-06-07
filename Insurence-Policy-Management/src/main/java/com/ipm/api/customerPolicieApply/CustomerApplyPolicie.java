@@ -27,7 +27,7 @@ public class CustomerApplyPolicie {
 	private String policyCatagory;
 	
 	private String policyName;
-	private String Status = "Pending";
+	private String status = "Pending";
 	private String policyapplydate =TodysDate.todayDate(); 
 
 	

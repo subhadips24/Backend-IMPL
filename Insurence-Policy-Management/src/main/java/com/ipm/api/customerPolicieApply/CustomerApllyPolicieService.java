@@ -42,14 +42,16 @@ public class CustomerApllyPolicieService {
 			}
 		
 	//Counting which one approve or disapprove 
-//		public int countOfApprove(String status) {
-//			
-//			List<CustomerApplyPolicie> capplist=apprepo.findBystatus(status);
-//			
-//			return capplist.size();
-//			
-//			
-//		}
+		public int countOfApprove(String status) {
+			
+			List<CustomerApplyPolicie> capplist=apprepo.findByStatusIs(status);
+			
+			return capplist.size();
+			
+			
+		}
+
+		
 	
 	
 }

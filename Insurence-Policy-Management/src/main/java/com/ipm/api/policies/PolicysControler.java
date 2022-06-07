@@ -18,14 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class PolicysControler {
 		@Autowired
 		PolicysService ps;
+		HttpStatus hs;
 		//Save Policys
 		@PostMapping("/addpolicys")
-		public String addPolicys(@RequestBody Policys po) {
+		public HttpStatus addPolicys(@RequestBody Policys po) {
 				try {
 					ps.saveCustomer(po);
-					return "Thanks for Add "+po.getPolicycatagory()+ "Policy";
+					return hs.CREATED;
 				} catch ( Exception e) {
-					return "You have Account "+HttpStatus.BAD_REQUEST;
+					return HttpStatus.BAD_REQUEST;
 				}
 			
 		}
@@ -37,23 +38,30 @@ public class PolicysControler {
 		}
 		//Update Policy by id
 		@PutMapping("/updatepolicy/{id}")
-		public String updatePolicy(@PathVariable("id") Long id,@RequestBody Policys p) {
+		public HttpStatus updatePolicy(@PathVariable("id") Long id,@RequestBody Policys p) {
 				Policys pp=ps.updatePolicyById(id, p);
 				if(pp!=null) {
-					return id+" id's Policy is Updated  "+HttpStatus.ACCEPTED;
+					return HttpStatus.OK;
 				}else {
-					return id+"This id is not  Found...... "+HttpStatus.BAD_REQUEST;
+					return HttpStatus.BAD_REQUEST;
 				}
 		}
 		@DeleteMapping("/deletepolicy/{id}")
-		public String deletePolicyById(@PathVariable Long id) {
+		public HttpStatus deletePolicyById(@PathVariable Long id) {
 				try {
 					ps.deletebyid(id);
-					return id+" this id is Delete"+ HttpStatus.ACCEPTED;
+					return  HttpStatus.OK;
 				} catch (Exception e) {
 				
-					return id+" This id not found ...Please check "+HttpStatus.BAD_REQUEST;
+					return HttpStatus.BAD_REQUEST;
 				}
+		}
+		
+		//Counting Policies
+		@GetMapping("/countpolicie")
+		public int countPolicie() {
+			List<Policys> pl=ps.showPolicys();
+			return pl.size();
 		}
 		
 		

@@ -1,0 +1,23 @@
+package com.ipm.api.unknowncustomersms;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+
+public class UnknownSmsControler {
+		@Autowired
+		public UnknownSmsService user;
+		HttpStatus hs;
+		@PostMapping("/unknowsms")
+		public HttpStatus saveSms() {
+			
+		}
+		
+	
+		//Save All Unknown sms 
+	
+}

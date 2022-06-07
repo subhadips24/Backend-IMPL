@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  interface CustomerApplyPolicieRepo extends JpaRepository<CustomerApplyPolicie, Long> {
 		public CustomerApplyPolicie findByAppid(Long id);
 
- //public	List<CustomerApplyPolicie> findBystatus(String status);
+     public	List<CustomerApplyPolicie> findByStatusIs(String status);
 		
 }
 

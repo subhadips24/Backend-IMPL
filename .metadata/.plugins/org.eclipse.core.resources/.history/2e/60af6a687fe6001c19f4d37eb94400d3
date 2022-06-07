@@ -1,0 +1,16 @@
+package com.ipm.api.questionsbycustomer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class QustionsCustomerService {
+	@Autowired
+	QustionsCustomerRepo qRepo;
+
+	public QuestionsCustomer saveQustions(QuestionsCustomer qc) {
+
+		return qRepo.save(qc);
+
+	}
+}

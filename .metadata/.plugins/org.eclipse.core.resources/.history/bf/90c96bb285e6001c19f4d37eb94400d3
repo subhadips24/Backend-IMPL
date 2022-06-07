@@ -1,0 +1,8 @@
+package com.ipm.api.questionsbycustomer;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class QustionsCustomerControler {
+
+}

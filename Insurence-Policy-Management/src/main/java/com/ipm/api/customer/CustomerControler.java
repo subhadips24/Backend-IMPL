@@ -95,5 +95,12 @@ public class CustomerControler {
 			
 		}
 	}
+	//Count Register Customer...
+	@GetMapping("/countcustomer")
+	public int countCustomer() {
+		List<Customer> cl=cs.showCustomers();
+		
+		return cl.size();
+	}
 	
 }

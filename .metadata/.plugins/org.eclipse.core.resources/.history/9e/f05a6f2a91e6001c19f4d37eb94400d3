@@ -1,0 +1,13 @@
+package com.ipm.api.unknowncustomersms;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class UnknownSmsService {
+	@Autowired
+	public UnknownSmsRepo urepo;
+	// Save sms in DB
+
+	public UnknownSms saveSms(UnknownSms sms) {
+
+	}
+}
