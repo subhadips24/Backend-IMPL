@@ -1,0 +1,9 @@
+package com.ipm.api.customer;
+
+import javax.persistence.Entity;
+
+@Entity
+
+public class Customer {
+	
+}

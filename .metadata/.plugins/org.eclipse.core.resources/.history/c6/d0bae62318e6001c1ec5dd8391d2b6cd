@@ -1,0 +1,19 @@
+package com.ipm.api.customer;
+
+import javax.persistence.Entity;
+
+@Entity
+
+public class Customer {
+	
+	private long cId;
+	private String cEmail;
+	private String cPassword;
+	private String cPhno;
+	private String cAge;
+	private String cGender;
+	private String cAddress;
+	
+	
+	
+}

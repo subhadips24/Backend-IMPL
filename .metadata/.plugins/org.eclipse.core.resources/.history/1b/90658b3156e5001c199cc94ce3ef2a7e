@@ -1,0 +1,28 @@
+package com.ipm.api;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.ipm.api.user.pojo.User;
+import com.ipm.api.user.repo.UserRepo;
+
+@SpringBootApplication
+public class DemoApplication {
+	@Autowired
+	private UserRepo repo;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+		
+		User u=new User();
+		u.setUAddress("Kolkata");
+		u.setUEmail("user@gmail.com");
+		u.setUPassword("123");
+		u.setUName("Dany Kol");
+		u.setUPhno("7894561230");
+		 
+		
+	}
+
+}

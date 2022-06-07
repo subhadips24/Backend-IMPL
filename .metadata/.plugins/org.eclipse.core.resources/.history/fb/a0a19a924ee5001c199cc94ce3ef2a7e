@@ -1,0 +1,10 @@
+package com.ipm.api.user.pojo;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ipb_users")
+public class User {
+
+}

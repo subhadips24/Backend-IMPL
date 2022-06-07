@@ -1,0 +1,13 @@
+package com.ipm.api.customer;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+interface  CustomerRepo extends JpaRepository<Customer, Long> {
+
+	
+
+	//public Customer findByCEmailAndcCPassword(String email, String password);
+
+	public Customer findByCemailAndfindByCpasswordIs(String email, String password);
+
+}

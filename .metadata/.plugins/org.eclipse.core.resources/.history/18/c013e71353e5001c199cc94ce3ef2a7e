@@ -1,0 +1,43 @@
+package com.ipm.api;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "ipb_user")
+@Data
+
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+     private Long	uId;
+	 private String uName;
+	@Column(unique = true,nullable = false)
+	 private String uEmail;
+	 
+	 private String uPassword;
+	 private String uPhno;
+	 private String uAddress;
+	 private List<String>uPolicyName;
+	 
+	 @ManyToOne(fetch = FetchType.LAZY)
+	 @JoinColumn(
+			 	name="admin_id", nullable = true
+ 			 )
+	 private Admin admin;
+	 
+	
+
+}

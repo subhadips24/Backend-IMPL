@@ -1,0 +1,5 @@
+package com.ipm.api.user.controler;
+
+public class UserControler {
+
+}

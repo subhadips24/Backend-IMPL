@@ -1,0 +1,24 @@
+package com.ipm.api.customer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CustomerControler {
+	@Autowired
+	CustomerService cs;
+	//For adding Customer use (/addcustomer)
+	@PostMapping("/addcustomer")
+	public HttpStatus addCustomer(@RequestBody Customer cc) {
+		
+			try {
+				cs.saveCustomer(cc);
+			} catch (Exception e) {
+				System.out.println("Something wend wrong ...."+e);
+			}
+		return HttpStatus.CREATED;
+	}
+}

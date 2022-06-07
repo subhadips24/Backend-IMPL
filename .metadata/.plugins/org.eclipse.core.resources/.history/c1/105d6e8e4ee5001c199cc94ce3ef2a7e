@@ -1,0 +1,5 @@
+package com.ipm.api.user.pojo;
+
+public class User {
+
+}

@@ -1,0 +1,16 @@
+package com.ipm.api.user.controler;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.ipm.api.user.pojo.User;
+import com.ipm.api.user.service.UserService;
+
+public class UserControler {
+	@Autowired
+	UserService serv;
+	public  void saveD(User u) {
+		serv.saveData(u);
+	}
+
+}
