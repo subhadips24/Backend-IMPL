@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -52,6 +53,24 @@ public class CustomerControler {
 			return true;
 			
 		}
+	}
+	@PutMapping("/updatecustomer/{email}")
+	public HttpStatus updateCustomer(@PathVariable("email") String email, @RequestBody Customer customer) {
+		try {
+			
+			Customer cc=cs.updateCustomerByEmail(email, customer);
+			if(cc!=null)
+			{
+				return HttpStatus.ACCEPTED;
+			}else {
+				return HttpStatus.FAILED_DEPENDENCY;
+			}
+			
+		} catch (Exception e) {
+			return HttpStatus.BAD_REQUEST;
+		}
+		
+		
 	}
 	
 }

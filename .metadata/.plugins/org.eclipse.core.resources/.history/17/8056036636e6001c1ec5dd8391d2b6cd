@@ -1,0 +1,16 @@
+package com.ipm.api.policys;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface  PolicysRepo extends JpaRepository<Policys, Long> {
+
+;
+
+
+	
+
+}

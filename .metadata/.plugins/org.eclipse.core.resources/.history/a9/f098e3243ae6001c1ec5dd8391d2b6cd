@@ -1,0 +1,25 @@
+package com.ipm.api.policys;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+
+
+public class PolicysControler {
+		@Autowired
+		PolicysService ps;
+		@PostMapping("/addpolicys")
+		public String addPolicys(@RequestBody Policys po) {
+				try {
+					ps.saveCustomer(po);
+					return "Thanks for Registrtion ....";
+				} catch ( Exception e) {
+					return "You have Account "+HttpStatus.BAD_REQUEST;
+				}
+			
+		}
+}

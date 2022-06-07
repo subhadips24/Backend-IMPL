@@ -28,11 +28,17 @@ public class CustomerService {
 		return crepo.findByCemailAndCpassword(email, password);
 	}
 	//Update Customer
-	public Customer updateCustomerByEmail(Customer cupdate) {
-		
-		if(crepo.findByCemail(cupdate.getCemail())) {
-			
-			return crepo.save(cupdate);
+	public Customer updateCustomerByEmail(String email,Customer customer) {
+		Customer cc=crepo.findByCemail(email);
+	
+		if(cc!=null) {
+			cc.setCemail(customer.getCemail());
+			cc.setCname(customer.getCname());
+			cc.setCpassword(customer.getCpassword());
+			cc.setCgender(customer.getCgender());
+			cc.setCphno(customer.getCphno());
+			cc.setCaddress(customer.getCaddress());
+			return crepo.save(cc);
 		}else {
 			return null;
 		}

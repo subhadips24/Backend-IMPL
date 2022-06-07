@@ -1,0 +1,47 @@
+package com.ipm.api.policys;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Policys {
+	
+	@Id
+
+	private Long pid;
+	@Column(nullable = false )
+	private String policyname;
+
+	
+	private String addDateOfPolicy;
+	@Column(nullable = false)
+	private String policycatagory;
+		// TODO Auto-generated method stub
+	public String getAddDateofpolicy() {
+		
+		return addDateOfPolicy;
+	}
+	public void setAddDateofpolicy(String addDateofpolicy) {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy(Time: HH:mm)");  
+	    Date date = new Date();  
+		this.addDateOfPolicy = formatter.format(date);
+	}
+	
+	
+	
+}

@@ -1,0 +1,27 @@
+package com.ipm.api.policys;
+
+import java.time.format.DateTimeFormatter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+
+@Entity
+
+public class Policys {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long pid;
+	@Column(nullable = false )
+	private String Policy_Name;
+	@Column(nullable = false)
+	private String addDateofpolicy=DateTimeFormatter.ofPattern("yyyy/MM/dd").LocalDateTime.now();
+	private String policycatagory;
+		// TODO Auto-generated method stub
+	
+}

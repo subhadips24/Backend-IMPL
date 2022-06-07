@@ -21,6 +21,7 @@ public class Customer {
 	private Long cid;
 	@Column(unique = true,nullable = false )
 	private String cemail;
+	private String cname;
 	private String cpassword;
 	private String cphno;
 	private String cage;

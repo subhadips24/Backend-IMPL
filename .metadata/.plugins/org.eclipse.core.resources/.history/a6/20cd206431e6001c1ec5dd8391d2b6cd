@@ -1,0 +1,24 @@
+package com.ipm.api.policys;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Policys {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long pid;
+	@Column(nullable = false )
+	private String Policy_Name;
+	@Column(nullable = false)
+	private.String addDateofpolicy=DateTimeFormatter.ofPattern("yyyy/MM/dd")..
+	private String policy_catagory;
+		// TODO Auto-generated method stub
+	public String getPolicy_catagory() {
+		return policy_catagory;
+	}
+	public void setPolicy_catagory(String policy_catagory) {
+		this.policy_catagory = policy_catagory;
+	}
+}

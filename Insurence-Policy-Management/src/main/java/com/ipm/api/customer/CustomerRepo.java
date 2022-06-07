@@ -9,6 +9,6 @@ interface  CustomerRepo extends JpaRepository<Customer, Long> {
 	
 
 	public Customer findByCemailAndCpassword(String email, String password);
-	public  boolean   findByCemail(String email);
+	public  Customer   findByCemail(String email);
 
 }

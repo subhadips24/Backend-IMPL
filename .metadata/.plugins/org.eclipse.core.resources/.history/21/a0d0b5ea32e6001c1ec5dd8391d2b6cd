@@ -1,0 +1,40 @@
+package com.ipm.api.policys;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+
+@Entity
+
+public class Policys {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long pid;
+	@Column(nullable = false )
+	private String Policy_Name;
+	@Column(nullable = false)
+	
+	private String addDateofpolicy;
+	private String policycatagory;
+		// TODO Auto-generated method stub
+	public String getAddDateofpolicy() {
+		
+		return addDateofpolicy;
+	}
+	public void setAddDateofpolicy(String addDateofpolicy) {
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");  
+	    Date date = new Date();  
+		this.addDateofpolicy = formatter.format(date);
+	}
+	
+	
+	
+}
