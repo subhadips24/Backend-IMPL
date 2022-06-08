@@ -17,19 +17,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuestionsCustomer {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long qid;
 	@Column(nullable = false)
-
-	private String customeremail;
-	@Column(nullable = false)
 	private String qtopic;
 	@Column(nullable = false)
 	private String qdetails;
-	private String qdate = TodysDate.todayDate();
+	private String qdate=TodysDate.todayDate();
 	private String qanswer;
 	private String answerdate;
+	
 
 }

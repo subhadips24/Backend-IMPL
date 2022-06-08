@@ -54,9 +54,9 @@ public class QustionsCustomerControler {
 	}
 	//Find Questions By Email Id
 	
-	@GetMapping("/findqustions/{email}")
+	@GetMapping("/findqustions/email")
 	public List<QuestionsCustomer> finqustionsByEmail(@PathVariable("email") String e){
-	
+				System.out.println(e);
 		return qservice.findByEmail(e);
 	}
 	@GetMapping("/countCustomerQuestions")

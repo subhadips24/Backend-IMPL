@@ -41,9 +41,8 @@ public class QustionsCustomerService {
 	//Getting Questions  by Email
 	
 		public List<QuestionsCustomer> findByEmail(String Email){
-			List<QuestionsCustomer> ql=qRepo.findAllByCustomeremail(Email);
-			System.out.println(ql);
-			return  ql;
+			List<QuestionsCustomer> ql=qRepo.findAllByCustomeremail(String );
+			return 
 		}
 	
 	
