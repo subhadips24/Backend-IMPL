@@ -5,12 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.ipm.api.TodysDate;
 
 import lombok.Data;
 
 @Entity
+@Table(name = "Customer_Apply_Policies")
 @Data
 public class CustomerApplyPolicie {
 
@@ -18,9 +20,9 @@ public class CustomerApplyPolicie {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long appid;
 	@Column(nullable = false)
-	private String CustomerName;
+	private String customername;
 	@Column(nullable = false)
-	private String CustomerEmail;
+	private String customeremail;
 	
 	private Long policyPrice;
 	@Column(nullable = false)

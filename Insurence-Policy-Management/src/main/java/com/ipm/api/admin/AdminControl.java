@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ipm.api.customer.Customer;
-import com.ipm.api.customer.CustomerService;
 import com.ipm.api.execptions.ProjectExecption;
 
 @RestController
@@ -25,13 +22,14 @@ public class AdminControl {
 	@Autowired
 	AdminService adminService;
 	//For adding Customer use (/addadmin)
+	
 	@PostMapping("/addadmin")
 	
-	public HttpStatus addAdmin(@RequestBody Admin aa) {
+	public Admin addAdmin(@RequestBody Admin aa) {
 		
 			try {
-				adminService.saveAdmin(aa);
-				return hs.CREATED;
+			
+				return  adminService.saveAdmin(aa); 
 			} catch (Exception e) {
 				throw new ProjectExecption();
 				

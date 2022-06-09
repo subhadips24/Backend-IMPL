@@ -50,6 +50,13 @@ public class CustomerApllyPolicieService {
 			
 			
 		}
+		
+		
+		public List<CustomerApplyPolicie> history(String cemail) {
+			
+					return apprepo.findBycustomeremailIs(cemail);
+			
+		}
 
 		
 	

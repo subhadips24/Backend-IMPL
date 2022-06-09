@@ -38,8 +38,14 @@ public class CustomerApplyPolicieControler {
 	@GetMapping("/getallaplicationofpolicy")
 
 	public List<CustomerApplyPolicie> showApllication() {
-
+		
 		return apservice.getCustomerApllication();
+	}
+	//History of application
+	@GetMapping("/historyofapplications/{cemail}")
+	public List<CustomerApplyPolicie> hsitory(@PathVariable("cemail") String cemail){
+		
+				return  apservice.history(cemail);
 	}
 
 	// Update Status
