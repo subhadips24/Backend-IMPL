@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ipm.api.execptions.ProjectExecption;
+
 @RestController
 @CrossOrigin("http://localhost:4200")
 public class CustomerApplyPolicieControler {
@@ -29,7 +31,7 @@ public class CustomerApplyPolicieControler {
 			return httpStatus.CREATED;
 
 		} catch (Exception e) {
-			return httpStatus.INTERNAL_SERVER_ERROR;
+			throw new ProjectExecption() ;
 		}
 	}
 
@@ -43,16 +45,18 @@ public class CustomerApplyPolicieControler {
 	// Update Status
 	@PutMapping("/updatestatus/{id}")
 
-	public HttpStatus updateStatus(@PathVariable Long id, @RequestBody CustomerApplyPolicie cap) {
+	public String  updateStatus(@PathVariable Long id, @RequestBody CustomerApplyPolicie cap) {
 
-		try {
-
+		CustomerApplyPolicie cp=apservice.updateStatus(id, cap);
+			if(cp!=null) {
+				
 			apservice.updateStatus(id, cap);
 
-			return httpStatus.CREATED;
-		} catch (Exception e) {
-			return httpStatus.INTERNAL_SERVER_ERROR;
-		}
+			return "Updated";
+			}else {
+				throw new ProjectExecption();
+			}
+		
 
 	}
 

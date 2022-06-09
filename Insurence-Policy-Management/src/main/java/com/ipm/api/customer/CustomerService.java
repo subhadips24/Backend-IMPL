@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ipm.api.execptions.ProjectExecption;
+
 @Service
 public class CustomerService {
 	@Autowired
@@ -28,7 +30,7 @@ public class CustomerService {
 		return crepo.findByCemailAndCpassword(email, password);
 	}
 	//Update Customer
-	public Customer updateCustomerByEmail(String email,Customer customer) {
+	public Customer updateCustomerByEmail(String email,Customer customer) throws ProjectExecption {
 		Customer cc=crepo.findByCemail(email);
 	
 		if(cc!=null) {

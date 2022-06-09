@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ipm.api.execptions.ProjectExecption;
+
 @RestController
 @CrossOrigin("http://localhost:4200")
 public class QustionsCustomerControler {
@@ -27,7 +29,7 @@ public class QustionsCustomerControler {
 					qservice.saveQustions(cqs);
 					return status.CREATED;
 				} catch (Exception e) {
-					return status.INTERNAL_SERVER_ERROR;
+					throw new ProjectExecption();
 				}
 			
 		}
@@ -47,11 +49,11 @@ public class QustionsCustomerControler {
 				if (u!=null) {
 					return status.OK;
 				}else {
-					return status.BAD_REQUEST;
+					throw new ProjectExecption("Your: "+qid+"Id Not Found");
 				}
 			
 			} catch (Exception e) {
-				return status.INTERNAL_SERVER_ERROR;
+				throw new ProjectExecption();
 			}
 	}
 	//Find Questions By Email Id

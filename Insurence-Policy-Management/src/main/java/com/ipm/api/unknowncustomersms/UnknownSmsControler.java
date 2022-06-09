@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ipm.api.execptions.ProjectExecption;
+
 @RestController
 @CrossOrigin("http://localhost:4200")
 public class UnknownSmsControler {
@@ -28,7 +30,7 @@ public class UnknownSmsControler {
 				return hs.CREATED;
 			} catch (Exception e) {
 				
-					return hs.BAD_REQUEST;
+					throw new ProjectExecption() ;
 			}
 			
 		}

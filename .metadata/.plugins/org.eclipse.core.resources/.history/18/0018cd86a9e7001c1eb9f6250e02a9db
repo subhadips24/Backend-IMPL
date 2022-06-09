@@ -1,0 +1,9 @@
+package com.ipm.api.execptions;
+
+public class ProjectExecption extends RuntimeException {
+
+	
+	
+
+		
+}

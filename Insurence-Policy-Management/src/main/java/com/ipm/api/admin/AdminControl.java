@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ipm.api.customer.Customer;
 import com.ipm.api.customer.CustomerService;
+import com.ipm.api.execptions.ProjectExecption;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -25,14 +26,14 @@ public class AdminControl {
 	AdminService adminService;
 	//For adding Customer use (/addadmin)
 	@PostMapping("/addadmin")
-	@ResponseStatus(HttpStatus.CREATED)
+	
 	public HttpStatus addAdmin(@RequestBody Admin aa) {
 		
 			try {
 				adminService.saveAdmin(aa);
 				return hs.CREATED;
 			} catch (Exception e) {
-				return hs.BAD_REQUEST;
+				throw new ProjectExecption();
 				
 			}
 	
@@ -41,7 +42,7 @@ public class AdminControl {
 	//Getting Data from Admin tale 
 	
 	@GetMapping("/showadmins")
-	@ResponseStatus(HttpStatus.FOUND)
+
 		public List<Admin> showallAdmins() {
 		return adminService.showAdmins();
 	}
@@ -49,7 +50,7 @@ public class AdminControl {
 	//Getting data using emaiid and password
 	
 	@GetMapping("/adminshowdata/{email}/{password}")
-	@ResponseStatus(HttpStatus.FOUND)
+
 	public Admin showaCustomerByEamilAndPass(@PathVariable("email") String email,@PathVariable("password") String password ) {
 		
 		
@@ -59,25 +60,25 @@ public class AdminControl {
 			return adu;
 		
 		}else {
-			return null;
+			throw new ProjectExecption("Admin Not Found");
 		}
 	
 	}
 	//Check for Login MAping.....
 	
-	@GetMapping("/adminlogin/{email}/{password}")
-	@ResponseStatus(HttpStatus.FOUND)
-	public boolean loginSystem(@PathVariable("email") String email,@PathVariable("password") String password){
-		if(adminService.showAdminUsingLogin(email, password)==null) {
-			return false;
-		}else {
-			return true;
-			
-		}
-	}
+	//@GetMapping("/adminlogin/{email}/{password}")
+
+//	public Ad loginSystem(@PathVariable("email") String email,@PathVariable("password") String password){
+//		if(adminService.showAdminUsingLogin(email, password)==null) {
+//			return false;
+//		}else {
+//			return true;
+//			
+//		}
+//	}
 	
 	@PutMapping("/updateadmin/{email}")
-	@ResponseStatus(HttpStatus.ACCEPTED)
+	
 	public HttpStatus updateCustomer(@PathVariable("email") String email, @RequestBody Admin admin) {
 		try {
 			
@@ -87,12 +88,12 @@ public class AdminControl {
 				return  hs.OK;
 			}else {
 				
-				return  hs.NOT_ACCEPTABLE;
+				throw new ProjectExecption()  ;
 			}
 			
 			
 		} catch (Exception e) {
-			return hs.INTERNAL_SERVER_ERROR ;
+			throw new ProjectExecption()   ;
 		}
 		
 		
@@ -100,13 +101,13 @@ public class AdminControl {
 	//Delete Data in admin
 	
 	@DeleteMapping("/deleteadmin/{id}")
-	@ResponseStatus(HttpStatus.FOUND)
+	
 	public HttpStatus deleteUser(@PathVariable("id") Long id) {
 		try {
 			adminService.deleteAdmin(id);
 			return hs.OK;
 		} catch (Exception e) {
-			return HttpStatus.NOT_FOUND;
+			throw new ProjectExecption() ;
 			
 		}
 	}

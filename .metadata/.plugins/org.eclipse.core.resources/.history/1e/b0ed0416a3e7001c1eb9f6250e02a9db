@@ -1,0 +1,15 @@
+package com.ipm.api.execptions;
+
+public class ProjectExecption extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	public Exception internalError() {
+	
+		
+	}
+		
+}

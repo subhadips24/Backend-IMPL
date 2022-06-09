@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ipm.api.execptions.ProjectExecption;
+
 @RestController
 @CrossOrigin("http://localhost:4200")
 
@@ -27,7 +29,7 @@ public class PolicysControler {
 					ps.saveCustomer(po);
 					return hs.CREATED;
 				} catch ( Exception e) {
-					return HttpStatus.BAD_REQUEST;
+					throw new ProjectExecption() ;
 				}
 			
 		}
@@ -44,7 +46,7 @@ public class PolicysControler {
 				if(pp!=null) {
 					return HttpStatus.OK;
 				}else {
-					return HttpStatus.BAD_REQUEST;
+					throw new ProjectExecption();
 				}
 		}
 		@DeleteMapping("/deletepolicy/{id}")
@@ -54,7 +56,7 @@ public class PolicysControler {
 					return  HttpStatus.OK;
 				} catch (Exception e) {
 				
-					return HttpStatus.BAD_REQUEST;
+					 throw new ProjectExecption();
 				}
 		}
 		
