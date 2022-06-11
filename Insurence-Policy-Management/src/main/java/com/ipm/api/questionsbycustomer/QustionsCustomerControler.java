@@ -34,6 +34,19 @@ public class QustionsCustomerControler {
 			
 		}
 	
+	@GetMapping("/findQuestionsBystatus")
+	public List<QuestionsCustomer> getAllPendingReply(){
+		return qservice.findByReply();
+	}
+	
+	@GetMapping("/countNotReply")
+	
+	public int CountAllPendingReply(){
+		
+		List<QuestionsCustomer> ql=qservice.findByReply();
+		return  ql.size();
+	}
+	
 	//Get All qustions
 	@GetMapping("/customerquestions")
 		public  List<QuestionsCustomer> getQustions() {
@@ -63,6 +76,7 @@ public class QustionsCustomerControler {
 	
 		return qservice.findByEmail(e);
 	}
+	
 	@GetMapping("/countCustomerQuestions")
 	public int countQu() {
 		List<QuestionsCustomer> cc=qservice.getAllQuestions();

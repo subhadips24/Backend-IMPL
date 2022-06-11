@@ -38,6 +38,14 @@ public class QustionsCustomerService {
 		
 	}
 	
+	//Getting Questions By Reply----
+	
+	public List<QuestionsCustomer> findByReply(){
+		
+			return qRepo.findAllByqanswer(null);
+		
+	}
+	
 	//Getting Questions  by Email
 	
 		public List<QuestionsCustomer> findByEmail(String Email){

@@ -24,7 +24,7 @@ public class CustomerApplyPolicie {
 	@Column(nullable = false)
 	private String customeremail;
 	
-	private Long policyPrice;
+	private String policyPrice;
 	@Column(nullable = false)
 	private String policyCatagory;
 	

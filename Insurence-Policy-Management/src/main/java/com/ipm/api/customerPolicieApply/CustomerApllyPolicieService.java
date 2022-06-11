@@ -22,6 +22,8 @@ public class CustomerApllyPolicieService {
 
 	}
 		
+		
+		
 	//Delete Customer Application
 		public void deleteCustomerApllication(Long id) {
 			
@@ -55,6 +57,15 @@ public class CustomerApllyPolicieService {
 		public List<CustomerApplyPolicie> history(String cemail) {
 			
 					return apprepo.findBycustomeremailIs(cemail);
+			
+		}
+		
+public List<CustomerApplyPolicie> showDatabStatus(String status) {
+			
+			List<CustomerApplyPolicie> capplist=apprepo.findByStatusIs(status);
+			
+			return  capplist;
+			
 			
 		}
 

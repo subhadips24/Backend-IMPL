@@ -12,4 +12,6 @@ public interface QustionsCustomerRepo extends JpaRepository<QuestionsCustomer, L
 	public QuestionsCustomer findByQidIs(Long qid);
 
 	public List<QuestionsCustomer> findAllByCustomeremail(String email);
+
+	public List<QuestionsCustomer> findAllByqanswer(String string);
 }

@@ -75,6 +75,14 @@ public class AdminControl {
 //		}
 //	}
 	
+	@GetMapping("/lowerAdmin/{email}")
+	
+	public List<Admin> listOfAdmin(@PathVariable("email") String admin){
+		
+		return adminService.findbyAdminEmail(admin);
+		
+	}
+	
 	@PutMapping("/updateadmin/{email}")
 	
 	public HttpStatus updateCustomer(@PathVariable("email") String email, @RequestBody Admin admin) {
@@ -100,14 +108,36 @@ public class AdminControl {
 	
 	@DeleteMapping("/deleteadmin/{id}")
 	
-	public HttpStatus deleteUser(@PathVariable("id") Long id) {
+	public String deleteUser(@PathVariable("id") Long id) {
 		try {
 			adminService.deleteAdmin(id);
-			return hs.OK;
+			return  id+" is Deleted";
 		} catch (Exception e) {
 			throw new ProjectExecption() ;
 			
 		}
 	}
-
+	
+	//Admin update by Id-----
+	
+	@PutMapping("/adminupdate/{id}")
+	public Admin updateById(@PathVariable("id") Long id, @RequestBody Admin admin) 
+	{
+		try {
+					
+					Admin cc=adminService.updateById(id, admin);
+					if(cc!=null)
+					{
+						return   cc;
+					}else {
+						
+						throw new ProjectExecption()  ;
+					}
+					
+					
+				} catch (Exception e) {
+					throw new ProjectExecption()   ;
+				}
+		
+	}
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ipm.api.execptions.ProjectExecption;
@@ -89,5 +90,30 @@ public class CustomerApplyPolicieControler {
 		List<CustomerApplyPolicie> capp = apservice.getCustomerApllication();
 		return capp.size();
 	}
-
+	
+	//@Get Customer by Status----
+	
+	@GetMapping("/getcustomersByRejected")
+	public List<CustomerApplyPolicie> getCustomerApplications(){
+				
+		return  apservice.showDatabStatus("Rejected");
+		
+	}
+	
+	@GetMapping("/getcustomersByPending")
+	
+	public List<CustomerApplyPolicie> getCustomerByPending(){
+		
+		return  apservice.showDatabStatus("Pending");
+		
+	}
+	
+	@GetMapping("/getcustomersByApproved")
+	public List<CustomerApplyPolicie> getCustoByApproved(){
+		
+		return  apservice.showDatabStatus("Approved");
+		
+	}
+	
+	
 }

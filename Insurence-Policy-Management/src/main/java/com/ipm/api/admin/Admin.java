@@ -24,6 +24,7 @@ public class Admin {
 	private String adminage;
 	private String admingender;
 	private String adminaddress;
-	private Long addByadminid;
+	
+	private String  seniormangeremail;
 	private String adminJoinDate=TodysDate.todayDate();
 }

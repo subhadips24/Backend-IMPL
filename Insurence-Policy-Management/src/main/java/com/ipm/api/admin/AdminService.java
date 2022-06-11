@@ -52,6 +52,34 @@ public class AdminService {
 			adminrepo.deleteById(id);
 		}
 		
+		public  List<Admin> findbyAdminEmail(String email){
+					
+			return adminrepo.findBySeniormangeremail(email);
+		}
+		
+		
+		//
+		public Admin updateById(Long id,Admin admin) {
+			
+			        Admin add= adminrepo.findByadminid(id);
+			
+			if(add!=null) {
+				
+				add.setAdminname(admin.getAdminname());
+				//add.setAdminemail(admin.getAdminemail());
+				add.setAdminpassword(admin.getAdminpassword());
+				add.setAdmingender(admin.getAdmingender());
+				add.setAdminphno(admin.getAdminphno());
+				add.setAdminaddress(admin.getAdminaddress());
+				return  adminrepo.save(add);
+			}else {
+				return null;
+			}
+				
+			
+			
+		}
+		
 		
 	
 
