@@ -9,7 +9,8 @@ import org.springframework.stereotype.Repository;
 		public CustomerApplyPolicie findByAppid(Long id);
 
      public	List<CustomerApplyPolicie> findByStatusIs(String status);
-public List<CustomerApplyPolicie> findBycustomeremailIs(String customeremail);
+     
+     	public List<CustomerApplyPolicie> findBycustomeremailIs(String customeremail);
 		
 }
 

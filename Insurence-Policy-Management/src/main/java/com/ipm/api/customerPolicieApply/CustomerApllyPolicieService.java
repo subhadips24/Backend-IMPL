@@ -5,10 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ipm.api.policies.PolicysService;
+
 @Service
 public class CustomerApllyPolicieService {
 	@Autowired
 	public CustomerApplyPolicieRepo apprepo;;
+	
+	@Autowired
+	public PolicysService policysService;
 	
 	//Aplly Policy or Save Policy in Apply Table 
 	public CustomerApplyPolicie apllicatonPolicy(CustomerApplyPolicie apply) {
@@ -58,6 +63,20 @@ public class CustomerApllyPolicieService {
 			
 					return apprepo.findBycustomeremailIs(cemail);
 			
+		}
+		
+		//Customer can't apply above all Policy count 
+		public boolean matchApplicationWithTotdalPolicy( String email) {
+				int countPolicy=policysService.showPolicys().size();
+				int countApplicationByEmailId=history(email).size();
+				
+				if(countApplicationByEmailId<countPolicy) {
+					
+					return true;
+				}else {
+					return false;
+				}
+				
 		}
 		
 public List<CustomerApplyPolicie> showDatabStatus(String status) {
