@@ -67,7 +67,6 @@ public class AdminService {
 				
 				add.setAdminname(admin.getAdminname());
 				add.setAdminemail(admin.getAdminemail());
-				add.setAdminage(admin.getAdminage());
 				add.setAdminpassword(admin.getAdminpassword());
 				add.setAdmingender(admin.getAdmingender());
 				add.setAdminphno(admin.getAdminphno());

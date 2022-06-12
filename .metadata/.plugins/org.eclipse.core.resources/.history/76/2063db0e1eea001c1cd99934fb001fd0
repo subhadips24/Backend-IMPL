@@ -1,6 +1,5 @@
 package com.ipm.api.unknowncustomersms;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,13 +16,9 @@ import lombok.NoArgsConstructor;
 public class UnknownSms {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(nullable = false)
 	private Long usmsid;
-	@Column(nullable = false)
 	private String usmsemail;
-	@Column(nullable = false)
 	private String ucustomername;
-	@Column(nullable = false)
 	private String  sms;
 	
 }
