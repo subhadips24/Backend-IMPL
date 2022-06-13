@@ -30,8 +30,6 @@ public class UnknownSmsService {
 	public String  delteSms(Long id) {
 		 
 			urepo.deleteById(id);
-			
-			return id+" Id Sms have benn Deleted";
 				
 		
 			

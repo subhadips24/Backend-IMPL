@@ -26,14 +26,4 @@ public class UnknownSmsService {
 		List<UnknownSms> allsms=urepo.findAll();
 		return allsms.size();
 	}
-	
-	public String  delteSms(Long id) {
-		 
-			urepo.deleteById(id);
-			
-			return id+" Id Sms have benn Deleted";
-				
-		
-			
-	}
 }
